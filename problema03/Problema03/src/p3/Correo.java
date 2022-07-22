@@ -14,7 +14,7 @@ public class Correo {
     private String correo;
     private String username;
     
-    public void establecerDominio(DominioGmail g){
+    public void establecerDominio(DominioCorreo g){
         dominioMail = g;
     }
     
