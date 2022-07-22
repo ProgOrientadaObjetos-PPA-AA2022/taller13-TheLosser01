@@ -37,7 +37,7 @@ public class TipoMatricula {
             suma = suma + lista.get(i).obtenerTarifa();
         }
 
-        promedioMatriculas = suma;
+        promedioMatriculas = suma / obtenerLista().size();
 
     }
 

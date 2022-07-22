@@ -8,7 +8,12 @@ package p1;
 import java.util.ArrayList;
 import p2.Estudiante;
 import p3.Correo;
+import p3.DominioCorreo;
 import p3.DominioGmail;
+import p3.DominioGobierno;
+import p3.DominioOutlook;
+import p3.DominioUTPL;
+import p3.DominioYahoo;
 
 /**
  *
@@ -26,27 +31,64 @@ public class Principal {
         Para utpl.edu.ec
         Para gobiernoec.gob
         
-        */
-        
+         */
+
         Estudiante e = new Estudiante();
         e.establecerNombres("René Elizalde");
         e.establecerUserName("rrelizalde");
         ArrayList<Correo> lista = new ArrayList<>();
-        
-        DominioGmail dominio = new DominioGmail();
-        dominio.establecerDominio("gmail.com");
+
+        DominioGmail dG = new DominioGmail();
+        dG.establecerDominio();
         Correo c = new Correo();
-        c.establecerDominio(dominio);
+        c.establecerDominio(dG);
         c.establecerUserName(e.obtenerUserName());
         c.establecerCorreo();
-        
+
         lista.add(c);
+
+        DominioOutlook dO = new DominioOutlook();
+        dO.establecerDominio();
+        Correo c1 = new Correo();
+        c1.establecerDominio(dO);
+        c1.establecerUserName(e.obtenerUserName());
+        c1.establecerCorreo();
+
+        lista.add(c1);
+
+        DominioYahoo dY = new DominioYahoo();
+        dY.establecerDominio();
+        Correo c2 = new Correo();
+        c2.establecerDominio(dY);
+        c2.establecerUserName(e.obtenerUserName());
+        c2.establecerCorreo();
+
+        lista.add(c2);
         
+        DominioUTPL dU = new DominioUTPL();
+        dU.establecerDominio();
+        Correo c3 = new Correo();
+        c3.establecerDominio(dU);
+        c3.establecerUserName(e.obtenerUserName());
+        c3.establecerCorreo();
+
+        lista.add(c3);
+        
+        DominioGobierno dGo = new DominioGobierno();
+        dGo.establecerDominio();
+        Correo c4 = new Correo();
+        c4.establecerDominio(dGo);
+        c4.establecerUserName(e.obtenerUserName());
+        c4.establecerCorreo();
+
+        lista.add(c4);
+        
+        
+
         e.establecerCorreos(lista);
-        
+
         System.out.printf("%s\n", e);
-        
-        
+
     }
-    
+
 }
