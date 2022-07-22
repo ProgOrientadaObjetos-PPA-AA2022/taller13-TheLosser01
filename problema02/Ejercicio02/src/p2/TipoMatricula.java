@@ -5,45 +5,66 @@
  */
 package p2;
 
-import p1.MatriculaCampamento;
-import p1.MatriculaColegio;
+import java.util.ArrayList;
+import p1.Matricula;
 
 /**
  *
  * @author reroes
  */
 public class TipoMatricula {
+
+    private ArrayList<Matricula> lista;
     private double promedioMatriculas;
-    private MatriculaCampamento campamento;
-    private MatriculaColegio colegio;
-    // private MatriculaEscuela escuela;
+    //private MatriculaCampamento campamento;
+    //private MatriculaColegio colegio;
+    //private MatriculaEscuela escuela;
     // private MatriculaJardin jardin;
     // private MatriculaMaternal maternal;
     // private MatriculaMaternal maternal2;
-    
-    public void establecerMatriculaCampamento(MatriculaCampamento c){
-        campamento = c;
+
+    public ArrayList<Matricula> obtenerLista() {
+        return lista;
     }
-    
-    public void establecerMatriculaColegio(MatriculaColegio c){
-        colegio = c;
+
+    public void establecerListaMatriculas(ArrayList<Matricula> l) {
+        lista = l;
     }
-    
-    public MatriculaCampamento obtenerMatriculaCampamento(){
-        return campamento;
+
+    public void establecerPromedioTarifas() {
+        double suma = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            suma = suma + lista.get(i).obtenerTarifa();
+        }
+
+        promedioMatriculas = suma;
+
     }
-    
-    public MatriculaColegio obtenerMatriculaColegio(){
-        return colegio;
-    }
-    
-    public void establecerPromedioTarifas(){
-        promedioMatriculas = (obtenerMatriculaCampamento().obtenerTarifa() + 
-                obtenerMatriculaColegio().obtenerTarifa())/2;
-        
-    }
-    
-    public double obtenerPromedioTarifas(){
+
+    public double obtenerPromedioTarifas() {
         return promedioMatriculas;
     }
+
+    @Override
+    public String toString() {
+
+        String cadena = String.format("Lista Matriculas\n");
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            cadena = String.format("%s"
+                    + "%.2f\n", cadena,
+                    lista.get(i).obtenerTarifa());
+
+        }
+
+        cadena = String.format("%s"
+                + "Promedio matriculas: %.2f",
+                cadena,
+                obtenerPromedioTarifas());
+
+        return cadena;
+
+    }
+
 }

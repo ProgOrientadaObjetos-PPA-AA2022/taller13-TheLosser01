@@ -9,7 +9,7 @@ package p1;
  *
  * @author reroes
  */
-public class MatriculaColegio {
+public class MatriculaColegio extends Matricula {
     private double tarifa;
     
     public void establecerTarifa(){
@@ -18,7 +18,4 @@ public class MatriculaColegio {
         tarifa = 150.2 + 140.2 + 240.2 + 300.4;
     }
         
-    public double obtenerTarifa(){
-        return tarifa;
-    }
 }
